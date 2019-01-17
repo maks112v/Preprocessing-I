@@ -47,6 +47,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+ul { 
+	list-style-type: disc; 
+	list-style-position: inside; 
+}
 
 /* Set every element's box-sizing to border-box */
 * {
@@ -62,27 +66,76 @@ html, body {
 @main-color: #212121;
 @dark-color: #81D4FA;
 @text-color: #383838;
+@light-color: #FAFAFA;
+@table-color: #dddddd;
+@table-light-color: #B3E5FC;
+@table-hover-color: #29B6F6;
 
 @font: 'Roboto', sans-serif;
 @header-font: 'Carter One', cursive;
 @main-font: 'Fredoka One', cursive;
 @content-font: 300;
+
 // Mixins
 .flex-box {
 	display: flex;
 	justify-content: center;
 }
 
+.flex-box-mobile {
+	flex-wrap: wrap;
+}
+
+.table-default(@width) {
+	table {
+		width: @width;
+		margin: 20px auto;
+	}
+
+	td, th {
+		border: 1px solid @table-color;
+		text-align: left;
+		padding: 8px;
+	}
+}
+
+.odd-table {
+	tr:nth-child(odd) {
+		background-color: @light-color;
+		transition: .1s;
+		&:hover {
+			background-color: @table-light-color;
+		}
+	}
+}
+
+.even-table {
+	tr:nth-child(even) {
+		background-color: @table-color;
+		transition: .1s;
+		&:hover {
+			background-color: @table-hover-color;
+		}
+	}
+}
+// Main Style
 .header {
 	background-color: @dark-color;
 	padding-top: 10px;
-	padding-bottom: 60px;
+	padding-bottom: 10px;
 	nav {
-		margin: 1rem 15rem;
+		margin: 30px 150px;
 		a {
 			padding: 0 10px;
 			text-decoration: none;
 			color: @text-color;
+		}
+	}
+	@media (max-width: 1024px){
+		nav{
+			width: 100%;
+			margin: 20px 0;
+			text-align: center;
 		}
 	}
 
@@ -113,11 +166,55 @@ html, body {
 				box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 			}
 		}
+
+		@media (max-width: 1024px) {
+			.flex-box-mobile();
+			.header-text {
+				margin-top: 20px;
+				margin-right: 0;
+				text-align: center;
+			}
+			img {
+				width: 100%;
+			}
+			.header-text{
+				order: 2;
+			}
+			.header-img {
+				order: 1;
+			}
+		}
+	}
+}
+
+.contact {
+	.flex-box();
+	margin: 30px 0;
+	.contact-text{
+		align-self:center;
+	}
+	h6{
+		font-size: 20px;
+		font-family: @main-font;
+		margin-right: 20px;
+	}
+	button {
+		background-color: DodgerBlue;
+		border: none;
+		color: white;
+		width: 50px;
+		height: 50px;
+		font-size: 16px;
+		cursor: pointer;
+		border-radius: 50px;
 	}
 }
 
 .container {
-	margin: 0 15rem;
+	margin: 0 20%;
+	@media (max-width: 1024px){
+		margin: 0 10%;
+	}
 }
 
 .about-me {
@@ -134,4 +231,48 @@ html, body {
 	p {
 		padding: 5px;
 	}
+	ul {
+		margin: 10px 50px;
+		text-align: left;
+	}
+
+	.table-default(95%);
+
+	.odd-table();
+
+	.even-table();
+	@media (max-width: 1024px) {
+		.flex-box-mobile();
+		div {
+			width: 90%;
+			margin: 20px 0;
+		}
+	}
+}
+
+.work {
+	h3 {
+		font-size: 30px;
+		text-align: center;
+		font-family: @main-font;
+	}
+
+	.table-default(80%);
+
+	td {
+		&:hover {
+			background-color: @text-color;
+			color: @light-color;
+		}
+	}
+	.odd-table();
+
+	.even-table();
+}
+
+footer {
+	background-color: @main-color;
+	color: @light-color;
+	text-align: center;
+	padding: 20px 0;
 }
