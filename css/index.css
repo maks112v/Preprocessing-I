@@ -160,6 +160,13 @@ body {
 .even-table tr:nth-child(even):hover {
   background-color: #29B6F6;
 }
+.hover-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.hover-shadow:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 .header {
   background-color: #81D4FA;
   padding-top: 10px;
@@ -250,6 +257,19 @@ body {
   font-size: 16px;
   cursor: pointer;
   border-radius: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.contact button:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+@media (max-width: 500px) {
+  .contact {
+    flex-wrap: wrap;
+  }
+  .contact div {
+    margin: 5px 0;
+  }
 }
 .container {
   margin: 0 20%;
@@ -282,6 +302,11 @@ body {
 .about-me table {
   width: 95%;
   margin: 20px auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.about-me table:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .about-me td,
 .about-me th {
@@ -320,6 +345,11 @@ body {
 .work table {
   width: 80%;
   margin: 20px auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.work table:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .work td,
 .work th {
