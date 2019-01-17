@@ -157,9 +157,12 @@ html, body {
 			z-index: 100;
 			font-weight: bold;
 			color: @text-color;
+			padding: 10px;
+			border-radius: 10px;
 		}
 		h1 {
 			font-size: 60px;
+			-webkit-filter: blur(0px);
 			text-align: right;
 			font-family: @header-font;
 		}
@@ -213,6 +216,11 @@ html, body {
 		cursor: pointer;
 		border-radius: 50px;
 		.hover-shadow();
+		&:hover {
+			color: DodgerBlue;
+			border: 2px solid DodgerBlue;
+			background-color: white;
+		}
 	}
 	@media (max-width: 500px){
 		.flex-box-mobile();
